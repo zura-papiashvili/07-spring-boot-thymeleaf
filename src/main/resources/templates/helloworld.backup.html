@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thymeleaf Demo</title>
+    <link rel="stylesheet" th:href="@{/css/demo.css}" />
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
+  </head>
+  <body>
+    <p th:text="'Time on the server is: ' + ${theDate}" class="funny">
+      Time on the server is: 2020-07-07 12:00:00 PM
+    </p>
+  </body>
+</html>

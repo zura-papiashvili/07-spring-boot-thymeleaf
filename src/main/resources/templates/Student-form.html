@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Form</title>
+  </head>
+
+  <body>
+    <h3>Student Registration Form</h3>
+    <form
+      th:action="@{/processStudentForm}"
+      th:object="${student}"
+      method="POST"
+    >
+      <p>
+        First Name:
+        <input type="text" th:field="*{firstName}" placeholder="First Name" />
+      </p>
+      <p>
+        Last Name:
+        <input type="text" th:field="*{lastName}" placeholder="Last Name" />
+      </p>
+
+      <p></p>
+
+      <p>
+        Country:
+        <select th:field="*{country}">
+          <option
+            th:each="tempCountry : ${countries}"
+            th:value="${tempCountry}"
+            th:text="${tempCountry}"
+          ></option>
+        </select>
+      </p>
+
+      <!-- radio buttons with favoriteLanguages  not hard coded -->
+      Favorite Language:
+      
+      <input
+        type="radio"
+        th:field="*{favoriteLanguage}"
+        th:each="tempLanguage : ${favoriteLanguages}"
+        th:value="${tempLanguage}"
+        th:text="${tempLanguage}"
+      />
+
+      <br></br>
+
+        <!-- checkboxes with operatingSystems not hard coded -->
+
+        Operating Systems:
+        <input
+          type="checkbox"
+          th:field="*{operatingSystems}"
+          th:each="tempOS : ${operatingSystems}"
+          th:value="${tempOS}"
+          th:text="${tempOS}"
+        />
+
+      <p>
+        <input type="submit" value="Submit" />
+      </p>
+    </form>
+  </body>
+</html>
